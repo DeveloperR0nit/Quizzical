@@ -32,7 +32,7 @@
   border: 1px solid #d6dbf5;
 }
 .questions-page-wrapper .option-btn.fade {
-  opacity: 60%;
+  opacity: 50%;
 }
 .questions-page-wrapper .option-btn.incorrect {
   background: #f8bcbc;
@@ -41,6 +41,9 @@
   background: #94d7a2;
   opacity: 100%;
   border: 1px solid #94d7a2;
+}
+.questions-page-wrapper .option-btn.correct-fade {
+  opacity: 50%;
 }
 
 /* Media Queries */

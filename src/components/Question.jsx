@@ -2,7 +2,6 @@ import "./Question.css";
 import { decode } from "html-entities";
 export default function Question(props) {
   const optionsArr = props.options.map((option, index) => {
-
     // Checking if the current page is questions page or answers page and rendering button design based on the following
 
     if (!props.questionsPage) {
@@ -12,9 +11,12 @@ export default function Question(props) {
           props.selectedAnswerObj[props.index] !== props.answer
         ) {
           return "incorrect";
-        }
-        if (option == props.answer) {
-          return "correct";
+        } else if (option == props.answer) {
+          if (Object.hasOwn(props.selectedAnswerObj, props.index)) {
+            return "correct";
+          } else {
+            return "correct correct-fade";
+          }
         }
       }
       return (
