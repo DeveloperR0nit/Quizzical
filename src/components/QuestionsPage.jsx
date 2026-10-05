@@ -2,7 +2,7 @@ import Question from "./Question";
 import "./QuestionsPage.css";
 import { useState, useEffect } from "react";
 export default function QuestionsPage(props) {
-  
+
   // State Variables
 
   const [resetQuestions, setResetQuestions] = useState(false);
@@ -109,12 +109,12 @@ export default function QuestionsPage(props) {
         </div>
       )}
       {error && (
-        <>
+        <div className="error-box">
           <p className="error-msg">
             Please wait for atleast 5 seconds before trying again 😥
           </p>
           <div className="loader error"></div>
-        </>
+        </div>
       )}
     </div>
   );
