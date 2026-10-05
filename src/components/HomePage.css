@@ -1,0 +1,26 @@
+body{
+    background: url("../assets/home-page-bg.png") no-repeat center/cover;
+}
+.home-page-wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.home-page-wrapper h1{
+    font-size: 31.25px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.home-page-wrapper p{
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+.home-page-wrapper .primary-btn{
+    height: 52px;
+    width: 192px;
+    border-radius: 15px;
+}
