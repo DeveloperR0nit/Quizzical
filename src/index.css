@@ -28,3 +28,9 @@ button{
     justify-content: center;
     align-items: center;
 }
+
+@media screen and (min-width: 576px){
+  .container{
+    max-width: 1200px;
+  }
+}

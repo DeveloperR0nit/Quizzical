@@ -66,3 +66,34 @@ body {
   padding: 5px;
   border-radius: 10px;
 }
+
+/* Media Querries */
+
+@media screen and (min-width: 576px) {
+  .home-page-wrapper h1 {
+    font-size: 40px;
+  }
+  .home-page-wrapper #trivia_category {
+    margin-top: 0;
+    margin-left: 10px;
+  }
+  .home-page-wrapper fieldset {
+    text-align: start;
+  }
+  .home-page-wrapper p {
+    margin-bottom: 40px;
+    font-size: 20px;
+    max-width: 600px;
+  }
+  .home-page-wrapper .primary-btn {
+    font-size: 18px;
+  }
+  .home-page-wrapper fieldset {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .home-page-wrapper select,
+  .home-page-wrapper input {
+    font-size: 14px;
+  }
+}

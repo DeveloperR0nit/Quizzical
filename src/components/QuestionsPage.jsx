@@ -2,6 +2,7 @@ import Question from "./Question";
 import "./QuestionsPage.css";
 import { useState, useEffect } from "react";
 export default function QuestionsPage(props) {
+  
   // State Variables
 
   const [resetQuestions, setResetQuestions] = useState(false);
@@ -34,9 +35,7 @@ export default function QuestionsPage(props) {
     });
     return count;
   }
-  console.log(
-    `https://opentdb.com/api.php?amount=${amt}${returnCategory}${returnDifficulty}&type=multiple`,
-  );
+
   // Fetching Data from API
 
   useEffect(() => {

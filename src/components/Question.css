@@ -53,3 +53,15 @@
     gap: 8px;
   }
 }
+@media screen and (min-width: 576px) {
+  .questions-page-wrapper h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .questions-page-wrapper .option-btn {
+    font-size: 14px;
+  }
+  .questions-page-wrapper .question-box {
+    padding-block: 25px;
+  }
+}

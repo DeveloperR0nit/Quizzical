@@ -7,7 +7,7 @@ body {
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  padding-block: 25px;
+  padding: 25px 0 40px;
 }
 .questions-page-wrapper .primary-btn {
   padding: 10px 22px;
@@ -31,6 +31,7 @@ body {
   font-family: "Inter", sans-serif;
   margin-bottom: 20px;
   text-align: center;
+  color: var(--primary-color);
 }
 .questions-page-wrapper .btn-box {
   display: flex;
@@ -140,4 +141,21 @@ body {
   position: absolute;
   top: calc(50% - 1.25em);
   left: calc(50% - 1.25em);
+}
+
+/* Media Querries */
+
+@media screen and (min-width: 576px) {
+  .questions-page-wrapper .primary-btn {
+    font-size: 18px;
+  }
+  .questions-page-wrapper .answers-box .primary-btn {
+    font-size: 16px;
+  }
+  .questions-page-wrapper .answers-box p {
+    font-size: 18px;
+  }
+  .questions-page-wrapper .error-msg {
+    font-size: 22px;
+  }
 }
