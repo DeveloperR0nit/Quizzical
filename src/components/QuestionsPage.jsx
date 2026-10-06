@@ -2,7 +2,6 @@ import Question from "./Question";
 import "./QuestionsPage.css";
 import { useState, useEffect } from "react";
 export default function QuestionsPage(props) {
-
   // State Variables
 
   const [resetQuestions, setResetQuestions] = useState(false);
@@ -10,6 +9,13 @@ export default function QuestionsPage(props) {
   const [randomNosArr, setRandomNosArr] = useState([]);
   const [selectedAnswerObj, setSelectedAnswerObj] = useState({});
   const [error, setError] = useState(false);
+
+  // Derived Variables
+
+  const { amt, category, difficulty } = props.questionSettings;
+  const returnCategory = category === "any" ? "" : `&category=${category}`;
+  const returnDifficulty =
+    difficulty === "any" ? "" : `&difficulty=${difficulty}`;
 
   // Functions
 
@@ -28,12 +34,16 @@ export default function QuestionsPage(props) {
     });
     return count;
   }
-
+  console.log(
+    `https://opentdb.com/api.php?amount=${amt}${returnCategory}${returnDifficulty}&type=multiple`,
+  );
   // Fetching Data from API
 
   useEffect(() => {
     const fetchQuestions = () => {
-      fetch("https://opentdb.com/api.php?amount=5&type=multiple")
+      fetch(
+        `https://opentdb.com/api.php?amount=${amt}${returnCategory}${returnDifficulty}&type=multiple`,
+      )
         .then((res) => {
           if (!res.ok) {
             throw new Error(`HTTP Error: ${res.status}`);
@@ -43,7 +53,7 @@ export default function QuestionsPage(props) {
         .then((data) => {
           setQuestions(data.results);
           const arrRandomNos = [];
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < data.results.length; i++) {
             arrRandomNos.push(Math.floor(Math.random() * 4));
           }
           setRandomNosArr(arrRandomNos);
@@ -58,7 +68,7 @@ export default function QuestionsPage(props) {
         });
     };
     fetchQuestions();
-  }, [resetQuestions]);
+  }, [resetQuestions, amt, returnCategory, returnDifficulty]);
 
   // Getting all the questions from Question element
 
@@ -94,27 +104,37 @@ export default function QuestionsPage(props) {
       )}
       {!props.questionsPage && allQuestions.length > 0 && (
         <div className="answers-box">
-          <span>
+          <p>
             You scored {correctAnswers()}/{questions.length} correct answers
-          </span>
-          <button
-            className="primary-btn"
-            onClick={() => {
-              props.playAgain();
-              resetQuiz();
-            }}
-          >
-            Play again
-          </button>
+          </p>
+          <div className="btn-box">
+            <button
+              className="primary-btn"
+              onClick={() => {
+                props.playAgain();
+                resetQuiz();
+              }}
+            >
+              Play again
+            </button>
+            <button
+              className="primary-btn"
+              onClick={() => {
+                props.returnToHome();
+              }}
+            >
+              Home
+            </button>
+          </div>
         </div>
       )}
       {error && (
-        <div className="error-box">
+        <>
           <p className="error-msg">
             Please wait for atleast 5 seconds before trying again 😥
           </p>
-          <div className="loader error"></div>
-        </div>
+          <div className="loader"></div>
+        </>
       )}
     </div>
   );
